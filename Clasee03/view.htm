@@ -1,0 +1,2120 @@
+<!DOCTYPE html>
+
+<html  dir="ltr" lang="es" xml:lang="es">
+<head>
+    <title>FunBigData04.25: Extra: visualización de arbol de dependencia NLP | UPB Virtual</title>
+    <link rel="shortcut icon" href="https://www.upbvirtual.net/upbvirtual/pluginfile.php/1/core_admin/favicon/64x64/1742324982/favicon-32x32.png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="moodle, FunBigData04.25: Extra: visualización de arbol de dependencia NLP | UPB Virtual" />
+<link rel="stylesheet" type="text/css" href="https://www.upbvirtual.net/upbvirtual/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.css" /><script id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</script><link rel="stylesheet" type="text/css" href="https://www.upbvirtual.net/upbvirtual/theme/styles.php/adaptable/1742324982_1627585395/all" />
+<script>
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"https:\/\/www.upbvirtual.net\/upbvirtual","homeurl":{},"sesskey":"nEFz4sADYx","sessiontimeout":"7200","sessiontimeoutwarning":1200,"themerev":"1742324982","slasharguments":1,"theme":"adaptable","iconsystemmodule":"core\/icon_system_fontawesome","jsrev":"1742324982","admin":"admin","svgicons":true,"usertimezone":"Am\u00e9rica\/La_Paz","language":"es","courseId":32243,"courseContextId":1536614,"contextid":1536687,"contextInstanceId":1131999,"langrev":1746605406,"templaterev":"1742324982","siteId":1};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''}
+if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else{me.path=component+'/'+component+'.'+me.type}};
+YUI_config = {"debug":false,"base":"https:\/\/www.upbvirtual.net\/upbvirtual\/lib\/yuilib\/3.18.1\/","comboBase":"https:\/\/www.upbvirtual.net\/upbvirtual\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"https:\/\/www.upbvirtual.net\/upbvirtual\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"https:\/\/www.upbvirtual.net\/upbvirtual\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"https:\/\/www.upbvirtual.net\/upbvirtual\/theme\/yui_combo.php?m\/1742324982\/","combine":true,"comboBase":"https:\/\/www.upbvirtual.net\/upbvirtual\/theme\/yui_combo.php?","ext":false,"root":"m\/1742324982\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-event":{"requires":["event-custom"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core_availability-form":{"requires":["base","node","event","event-delegate","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_attendance-groupfilter":{"requires":["base","node"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-util":{"requires":["node","moodle-core-actionmenu"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form","datatype-date-format"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-qbank_editquestion-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-alert","moodle-core-notification-warning","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emojipicker-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_h5p-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_html-codemirror":{"requires":["moodle-atto_html-codemirror-skin"]},"moodle-atto_html-button":{"requires":["promise","moodle-editor_atto-plugin","moodle-atto_html-beautify","moodle-atto_html-codemirror","event-valuechange"]},"moodle-atto_html-beautify":{},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin","moodle-form-shortforms"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_recordrtc-recording":{"requires":["moodle-atto_recordrtc-button"]},"moodle-atto_recordrtc-button":{"requires":["moodle-editor_atto-plugin","moodle-atto_recordrtc-recording"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"https:\/\/www.upbvirtual.net\/upbvirtual\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"https:\/\/www.upbvirtual.net\/upbvirtual\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1742324982\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"https:\/\/www.upbvirtual.net\/upbvirtual\/lib\/javascript.php\/1742324982\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker","moodle-core-notification-dialogue"]},"core_comment":{"name":"core_comment","fullpath":"https:\/\/www.upbvirtual.net\/upbvirtual\/lib\/javascript.php\/1742324982\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]}},"logInclude":[],"logExclude":[],"logLevel":null};
+M.yui.loader = {modules: {}};
+
+//]]>
+</script>
+
+<meta name="moodle-validation" content="a3a338d77e16a7b06abecb987b2d72f2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+    <meta name="twitter:site" value="Tutoría Virtual UPB">
+    <meta name="twitter:title" value="FunBigData04.25: Extra: visualización de arbol de dependencia NLP | UPB Virtual">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="FunBigData04.25: Extra: visualización de arbol de dependencia NLP | UPB Virtual">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="">
+    <meta name="og:site_name" value="Tutoría Virtual UPB">
+
+    <!-- Chrome, Firefox OS and Opera on Android topbar color -->
+    <meta name="theme-color" content="#f2f2f2">
+
+    <!-- Windows Phone topbar color -->
+    <meta name="msapplication-navbutton-color" content="#f2f2f2">
+
+    <!-- iOS Safari topbar color -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f2f2f2">
+
+</head><body  id="page-mod-assign-view" class="format-topics limitedwidth  path-mod path-mod-assign chrome dir-ltr lang-es yui-skin-sam yui3-skin-sam www-upbvirtual-net--upbvirtual pagelayout-incourse course-32243 context-1536687 cmid-1131999 cm-type-assign category-3 theme theme_adaptable two-column  fullin header-style1 showblockicons standard uses-drawers responsivesectionnav"><div>
+    <a class="sr-only sr-only-focusable" href="#maincontent">Salta al contenido principal</a>
+</div><script src="https://www.upbvirtual.net/upbvirtual/lib/javascript.php/1742324982/lib/polyfills/polyfill.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/theme/yui_combo.php?rollup/3.18.1/yui-moodlesimple-min.js"></script><script src="https://www.upbvirtual.net/upbvirtual/theme/jquery.php/core/jquery-3.7.1.min.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/theme/jquery.php/theme_adaptable/pace-min.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/theme/jquery.php/theme_adaptable/jquery-flexslider-min.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/theme/jquery.php/theme_adaptable/tickerme.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/theme/jquery.php/theme_adaptable/jquery-easing-min.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/theme/jquery.php/theme_adaptable/adaptable_v2_1_1_2.js"></script>
+<script src="https://www.upbvirtual.net/upbvirtual/lib/javascript.php/1742324982/lib/javascript-static.js"></script>
+<script>
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</script>
+
+<div id="page-wrapper"><div  class="drawer drawer-left d-none d-print-none not-initialized" data-region="fixed-drawer" id="theme_adaptable-drawers-courseindex" data-preference="drawer-open-index" data-state="show-drawer-left" data-forceopen="0" data-close-on-resize="0">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_adaptable-drawers-courseindex"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Cerrar el índice del curso"
+        >
+            <i class="icon fa fa-times fa-fw" aria-hidden="true"  ></i>
+        </button>
+        
+        <div class="drawerheadercontent hidden">
+            
+        </div>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                    <nav id="courseindex" class="courseindex">
+    <div id="courseindex-content">
+        <div data-region="loading-placeholder-content" aria-hidden="true" id="course-index-placeholder">
+            <ul class="placeholders list-unstyled px-5">
+                <li>
+                    <div class="col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-md-6 p-0 d-flex align-items-center">
+                        <div class="bg-pulse-grey rounded-circle mr-2"></div>
+                        <div class="bg-pulse-grey w-100"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    </div>
+</div><div  class="drawer drawer-right show d-none d-print-none not-initialized" data-region="fixed-drawer" id="theme_adaptable-drawers-sidepost" data-preference="drawer-open-block" data-state="show-drawer-right" data-forceopen="" data-close-on-resize="1">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_adaptable-drawers-sidepost"
+            data-toggle="tooltip"
+            data-placement="left"
+            title="Cerrar cajón del bloque"
+        >
+            <i class="icon fa fa-times fa-fw" aria-hidden="true"  ></i>
+        </button>
+        
+        <div class="drawerheadercontent hidden">
+            
+        </div>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                    <section class="d-print-none" aria-label="Bloques">
+                
+                <aside id="block-region-side-post" class="block-region" data-blockregion="side-post" data-droptarget="1"><h2 class="sr-only">Bloques</h2><a class="skip skip-block" id="fsb-1" href="#sb-1">Salta Navegación</a><section id="inst4" class="block_navigation block mb-3" role="navigation" data-block="navigation" data-instanceid="4" aria-labelledby="instance-4-header"><div class="header"><div id="instance-4-action" class="block-action block-collapsible" data-instanceid="4" title="Show / hide the block"></div><div class="title"><div class="block_action"></div><h2 class="d-inline" id="instance-4-header">Navegación</h2></div><div class="block-controls"></div></div><div class="content"><ul class="block_tree list" role="tree" data-ajax-loader="block_navigation/nav_loader"><li class="type_unknown depth_1 contains_branch" role="treeitem" aria-expanded="true" aria-owns="random681bef0237c9c2_group" data-collapsible="false" aria-labelledby="random681bef0237c9c1_label_1_1"><p class="tree_item branch navigation_node"><a tabindex="-1" id="random681bef0237c9c1_label_1_1" href="https://www.upbvirtual.net/upbvirtual/">Página Principal</a></p><ul id="random681bef0237c9c2_group" role="group"><li class="type_setting depth_2 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c3_label_2_2"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c3_label_2_2" href="https://www.upbvirtual.net/upbvirtual/my/"><i class="icon fa fa-tachometer fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Área personal</span></a></p></li><li class="type_course depth_2 contains_branch" role="treeitem" aria-expanded="false" aria-owns="random681bef0237c9c5_group" aria-labelledby="random681bef0237c9c3_label_2_3"><p class="tree_item branch"><span tabindex="-1" id="random681bef0237c9c3_label_2_3" title="Tutoría Virtual UPB">Páginas del sitio</span></p><ul id="random681bef0237c9c5_group" role="group" aria-hidden="true"><li class="type_custom depth_3 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c6_label_3_5"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c6_label_3_5" href="https://www.upbvirtual.net/upbvirtual/my/courses.php"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Mis cursos</span></a></p></li><li class="type_unknown depth_3 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c6_label_3_6"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c6_label_3_6" href="https://www.upbvirtual.net/upbvirtual/blog/index.php"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Blogs del sitio</span></a></p></li><li class="type_custom depth_3 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c6_label_3_7"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c6_label_3_7" href="https://www.upbvirtual.net/upbvirtual/badges/view.php?type=1"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Insignias del sitio</span></a></p></li><li class="type_setting depth_3 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c6_label_3_8"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c6_label_3_8" href="https://www.upbvirtual.net/upbvirtual/tag/search.php"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Marcas</span></a></p></li><li class="type_activity depth_3 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c6_label_3_10"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c6_label_3_10" title="Foro" href="https://www.upbvirtual.net/upbvirtual/mod/forum/view.php?id=12167"><img class="icon navicon" alt="Foro" title="Foro" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/forum/1742324982/monologo" /><span class="item-content-wrap">Novedades del sitio</span></a></p></li><li class="type_activity depth_3 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c6_label_3_11"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c6_label_3_11" title="Página" href="https://www.upbvirtual.net/upbvirtual/mod/page/view.php?id=627738"><img class="icon navicon" alt="Página" title="Página" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/page/1742324982/monologo" /><span class="item-content-wrap">Bloque de Enlaces</span></a></p></li></ul></li><li class="type_system depth_2 contains_branch" role="treeitem" aria-expanded="true" aria-owns="random681bef0237c9c13_group" aria-labelledby="random681bef0237c9c3_label_2_12"><p class="tree_item branch"><a tabindex="-1" id="random681bef0237c9c3_label_2_12" href="https://www.upbvirtual.net/upbvirtual/my/courses.php">Mis cursos</a></p><ul id="random681bef0237c9c13_group" role="group"><li class="type_unknown depth_3 contains_branch" role="treeitem" aria-expanded="false" aria-owns="random681bef0237c9c15_group" aria-labelledby="random681bef0237c9c14_label_3_13"><p class="tree_item branch canexpand"><span tabindex="-1" id="random681bef0237c9c14_label_3_13">Postgrado</span></p><ul id="random681bef0237c9c15_group" role="group" aria-hidden="true"><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_31062" data-node-key="31062" data-node-type="20" aria-labelledby="random681bef0237c9c16_label_4_14"><p class="tree_item branch" id="expandable_branch_20_31062"><a tabindex="-1" id="random681bef0237c9c16_label_4_14" title="ESTADÍSTICA APLICADA AL ANÁLISIS DE DATOS_DVMCD _ 03/02/25 _ COCHABAMBA copia 1" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=31062">DATOS_12025</a></p></li><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_31674" data-node-key="31674" data-node-type="20" aria-labelledby="random681bef0237c9c16_label_4_15"><p class="tree_item branch" id="expandable_branch_20_31674"><a tabindex="-1" id="random681bef0237c9c16_label_4_15" title="FUNDAMENTOS DE MACHINE LEARNING_DVMCD _ 17/03/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=31674">FML_Mar_25</a></p></li><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_30795" data-node-key="30795" data-node-type="20" aria-labelledby="random681bef0237c9c16_label_4_16"><p class="tree_item branch" id="expandable_branch_20_30795"><a tabindex="-1" id="random681bef0237c9c16_label_4_16" title="HERRAMIENTAS BÁSICAS  DE VISUALIZACIÓN DE DATOS_DVMCD _ 13/01/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=30795">HBVD_jan25</a></p></li><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_30741" data-node-key="30741" data-node-type="20" aria-labelledby="random681bef0237c9c16_label_4_17"><p class="tree_item branch" id="expandable_branch_20_30741"><a tabindex="-1" id="random681bef0237c9c16_label_4_17" title="INDUCCIÓN A LA PLATAFORMA VIRTUAL_DVMCD _ 08/01/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=30741">induccion 1-2025</a></p></li></ul></li><li class="type_unknown depth_3 contains_branch" role="treeitem" aria-expanded="true" aria-owns="random681bef0237c9c17_group" aria-labelledby="random681bef0237c9c14_label_3_18"><p class="tree_item branch canexpand"><span tabindex="-1" id="random681bef0237c9c14_label_3_18">Ciencias Empresariales y Derecho</span></p><ul id="random681bef0237c9c17_group" role="group"><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="true" aria-owns="random681bef0237c9c19_group" aria-labelledby="random681bef0237c9c18_label_4_19"><p class="tree_item branch canexpand"><a tabindex="-1" id="random681bef0237c9c18_label_4_19" title="FUNDAMENTOS DE BIG DATA_DVMCD _ 28/04/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">FunBigData04.25</a></p><ul id="random681bef0237c9c19_group" role="group"><li class="type_container depth_5 contains_branch" role="treeitem" aria-expanded="false" aria-owns="random681bef0237c9c21_group" aria-labelledby="random681bef0237c9c20_label_5_20"><p class="tree_item branch"><a tabindex="-1" id="random681bef0237c9c20_label_5_20" href="https://www.upbvirtual.net/upbvirtual/user/index.php?id=32243">Participantes</a></p><ul id="random681bef0237c9c21_group" role="group" aria-hidden="true"><li class="type_setting depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c22_label_6_21"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c22_label_6_21" href="https://www.upbvirtual.net/upbvirtual/blog/index.php?courseid=32243"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Blogs de curso</span></a></p></li><li class="type_user depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c22_label_6_22"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c22_label_6_22" href="https://www.upbvirtual.net/upbvirtual/user/view.php?id=52574&amp;course=32243"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">MOLINA BARROSO HORACIO</span></a></p></li></ul></li><li class="type_setting depth_5 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c20_label_5_23"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c20_label_5_23" href="https://www.upbvirtual.net/upbvirtual/admin/tool/lp/coursecompetencies.php?courseid=32243"><i class="icon fa fa-check-square-o fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Competencias</span></a></p></li><li class="type_setting depth_5 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c20_label_5_24"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c20_label_5_24" href="https://www.upbvirtual.net/upbvirtual/grade/report/index.php?id=32243"><i class="icon fa fa-table fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Calificaciones</span></a></p></li><li class="type_structure depth_5 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_265451" data-node-key="265451" data-node-type="30" aria-labelledby="random681bef0237c9c20_label_5_25"><p class="tree_item branch" id="expandable_branch_30_265451"><a tabindex="-1" id="random681bef0237c9c20_label_5_25" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265451">General</a></p></li><li class="type_structure depth_5 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_265452" data-node-key="265452" data-node-type="30" aria-labelledby="random681bef0237c9c20_label_5_26"><p class="tree_item branch" id="expandable_branch_30_265452"><a tabindex="-1" id="random681bef0237c9c20_label_5_26" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265452">BIBLIOGRAFIA Y HERRAMIENTAS</a></p></li><li class="type_structure depth_5 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_265453" data-node-key="265453" data-node-type="30" aria-labelledby="random681bef0237c9c20_label_5_27"><p class="tree_item branch" id="expandable_branch_30_265453"><a tabindex="-1" id="random681bef0237c9c20_label_5_27" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265453">PRIMERA SEMANA</a></p></li><li class="type_structure depth_5 contains_branch" role="treeitem" aria-expanded="true" aria-owns="random681bef0237c9c27_group" aria-labelledby="random681bef0237c9c20_label_5_28"><p class="tree_item branch"><a tabindex="-1" id="random681bef0237c9c20_label_5_28" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265454">Actividades de la Primera Semana</a></p><ul id="random681bef0237c9c27_group" role="group"><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_31"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_31" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131958"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/pdf" /><span class="item-content-wrap">Ejercicio extra - API Spotify</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_32"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_32" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131959"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/text" /><span class="item-content-wrap">Notebook API Spotify</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_33"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_33" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131960"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/json" /><span class="item-content-wrap">Notebook API Open Meteo</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_35"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_35" title="Foro" href="https://www.upbvirtual.net/upbvirtual/mod/forum/view.php?id=1131962"><img class="icon navicon" alt="Foro" title="Foro" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/forum/1742324982/monologo" /><span class="item-content-wrap">Video IoT</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_38"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_38" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131965"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Cuestionario Fundamentos Big Data</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_39"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_39" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131966"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Video Big Data en el Cine</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_40"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_40" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131967"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Video Big Data - Kenneth Cukier</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_42"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_42" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131969"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/pdf" /><span class="item-content-wrap">1. Fundamentos del Big Data</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_43"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_43" title="Tarea" href="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131970"><img class="icon navicon" alt="Tarea" title="Tarea" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/assign/1742324982/monologo" /><span class="item-content-wrap">Entrega ejercicio extra - API Spotify, todas las e...</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_49"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_49" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131976"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/text" /><span class="item-content-wrap">Notebook 3 Procesamiento de Lenguaje Natural VERSI...</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_50"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_50" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131977"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/json" /><span class="item-content-wrap">Notebook  NLP + Spotify</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_53"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_53" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131980"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Cuestionario Estructura de Datos</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_54"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_54" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131981"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Link resumen para el cuestionario</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_55"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_55" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131982"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/pdf" /><span class="item-content-wrap">2.  Tipos de Datos y su Estructura</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_56"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_56" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131983"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Link Herramienta Clustering palabras</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_57"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_57" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131984"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/pdf" /><span class="item-content-wrap">Práctica 1 SEO clustering de palabras</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_58"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_58" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131985"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/text" /><span class="item-content-wrap">Ejemplo Procesamiento de Lenguaje Natural .ipynb</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_61"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_61" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131988"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Cuestionario SQL</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_62"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_62" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131989"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/pdf" /><span class="item-content-wrap">3. Bases de datos relacionales</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_63"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_63" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131990"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/powerpoint" /><span class="item-content-wrap">Presentación SQL diapositivas</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_64"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_64" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131991"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/document" /><span class="item-content-wrap">Ejercicio 1 SQL</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_65"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_65" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131992"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/document" /><span class="item-content-wrap">Ejercicio 1 SQL  - Corregido</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_68"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_68" title="URL" href="https://www.upbvirtual.net/upbvirtual/mod/url/view.php?id=1131995"><img class="icon navicon" alt="URL" title="URL" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/url/1742324982/monologo" /><span class="item-content-wrap">Cuestionario de Bases de Datos Relacionales</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_69"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_69" title="Tarea" href="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131996"><img class="icon navicon" alt="Tarea" title="Tarea" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/assign/1742324982/monologo" /><span class="item-content-wrap">Entrega Práctica 1. SEO Cluster de palabras</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_70"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_70" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131997"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/pdf" /><span class="item-content-wrap">Práctica 2 (SQL)</span></a></p></li><li class="type_activity depth_6 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_71"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c28_label_6_71" title="Archivo" href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131998"><img class="icon navicon" alt="Archivo" title="Archivo" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/core/1742324982/f/text" /><span class="item-content-wrap">Notebook - Conectar a SQL Server</span></a></p></li><li class="type_activity depth_6 item_with_icon current_branch" role="treeitem" aria-labelledby="random681bef0237c9c28_label_6_72"><p class="tree_item hasicon active_tree_node"><a tabindex="-1" id="random681bef0237c9c28_label_6_72" title="Tarea" href="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131999"><img class="icon navicon" alt="Tarea" title="Tarea" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/assign/1742324982/monologo" /><span class="item-content-wrap">Extra: visualización de arbol de dependencia NLP</span></a></p></li></ul></li><li class="type_structure depth_5 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_265456" data-node-key="265456" data-node-type="30" aria-labelledby="random681bef0237c9c20_label_5_74"><p class="tree_item branch" id="expandable_branch_30_265456"><a tabindex="-1" id="random681bef0237c9c20_label_5_74" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265456">SEGUNDA SEMANA</a></p></li><li class="type_structure depth_5 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_30_265457" data-node-key="265457" data-node-type="30" aria-labelledby="random681bef0237c9c20_label_5_75"><p class="tree_item branch" id="expandable_branch_30_265457"><a tabindex="-1" id="random681bef0237c9c20_label_5_75" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265457">Actividades de la Segunda Semana</a></p></li></ul></li><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_31895" data-node-key="31895" data-node-type="20" aria-labelledby="random681bef0237c9c18_label_4_76"><p class="tree_item branch" id="expandable_branch_20_31895"><a tabindex="-1" id="random681bef0237c9c18_label_4_76" title="FUNDAMENTOS DE DEEP LEARNING_DVMCD _ 07/04/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=31895">FUNDAMENTOS DE DEEP LEARNING, 07/04</a></p></li><li class="type_course depth_4 contains_branch" role="treeitem" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_31361" data-node-key="31361" data-node-type="20" aria-labelledby="random681bef0237c9c18_label_4_77"><p class="tree_item branch" id="expandable_branch_20_31361"><a tabindex="-1" id="random681bef0237c9c18_label_4_77" title="MODELOS DE PREDICCIÓN ANALÍTICA_DVMCD _ 24/02/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=31361">MOD_PRED_FEB_2025</a></p></li></ul></li></ul></li><li class="type_custom depth_2 item_with_icon" role="treeitem" aria-labelledby="random681bef0237c9c3_label_2_78"><p class="tree_item hasicon"><a tabindex="-1" id="random681bef0237c9c3_label_2_78" href="https://www.upbvirtual.net/upbvirtual/moodlevideos/moodle-tutoriales-estudiante.php"><i class="icon fa fa-compass fa-fw navicon" aria-hidden="true"  ></i><span class="item-content-wrap">Videos Tutoriales UPBVirtual Estudiantes</span></a></p></li></ul></li></ul></div></section><span class="skip-block-to" id="sb-1"></span></aside>
+            </section>
+
+    </div>
+</div><header id="adaptable-page-header-wrapper">
+    <div id="header1" class="above-header">
+        <div class="container">
+            <nav class="navbar navbar-expand btco-hover-menu">
+                <button class="navbar-toggler nav-link aabtn d-block d-lg-none px-1 my-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_adaptable-drawers-primary">
+                    <span aria-hidden="true" class="fa fa-bars"></span>
+                    <span class="sr-only">Panel lateral</span>
+                </button>
+
+                <div class="collapse navbar-collapse">
+                <div class="my-auto m-1"></div>
+                    <ul class="navbar-nav ml-auto my-auto">
+
+
+                        <li id="nav-popover-container" class="my-auto mx-md-1 d-flex"><div class="popover-region collapsed popover-region-notifications"
+    id="nav-notification-popover-container" data-userid="52574"
+    data-region="popover-region">
+    <div class="popover-region-toggle nav-link icon-no-margin"
+        data-region="popover-region-toggle"
+        role="button"
+        aria-controls="popover-region-container-681bef023cc82681bef0237c9c72"
+        aria-haspopup="true"
+        aria-label=" Mostrar la ventana de notificaciones cuando no hay ninguna   "
+        tabindex="0">
+                <i class="icon fa fa-bell-o fa-fw"  title="Mostrar/ocultar menú de notificaciones" role="img" aria-label="Mostrar/ocultar menú de notificaciones"></i>
+        <div
+            class="count-container hidden"
+            data-region="count-container"
+            aria-hidden=true
+        >
+            0
+        </div>
+
+    </div>
+    <div 
+        id="popover-region-container-681bef023cc82681bef0237c9c72"
+        class="popover-region-container"
+        data-region="popover-region-container"
+        aria-expanded="false"
+        aria-hidden="true"
+        aria-label="Ventana de notificación"
+        role="region">
+        <div class="popover-region-header-container">
+            <h3 class="popover-region-header-text" data-region="popover-region-header-text">Notificaciones</h3>
+            <div class="popover-region-header-actions" data-region="popover-region-header-actions">        <a class="mark-all-read-button"
+           href="#"
+           title="Marcar como leído"
+           data-action="mark-all-read"
+           role="button"
+           aria-label="Marcar como leído">
+            <span class="normal-icon"><i class="icon fa fa-check fa-fw" aria-hidden="true"  ></i></span>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+        </a>
+            <a href="https://www.upbvirtual.net/upbvirtual/message/notificationpreferences.php"
+               title="Preferencias de notificación"
+               aria-label="Preferencias de notificación">
+                <i class="icon fa fa-cog fa-fw" aria-hidden="true"  ></i></a>
+</div>
+        </div>
+        <div class="popover-region-content-container" data-region="popover-region-content-container">
+            <div class="popover-region-content" data-region="popover-region-content">
+                        <div class="all-notifications"
+            data-region="all-notifications"
+            role="log"
+            aria-busy="false"
+            aria-atomic="false"
+            aria-relevant="additions"></div>
+        <div class="empty-message" tabindex="0" data-region="empty-message">No tienes notificaciones</div>
+
+            </div>
+            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+        </div>
+                <a class="see-all-link"
+                    href="https://www.upbvirtual.net/upbvirtual/message/output/popup/notifications.php">
+                    <div class="popover-region-footer-container">
+                        <div class="popover-region-seeall-text">Ver todo</div>
+                    </div>
+                </a>
+    </div>
+</div><div class="pull-right popover-region popover-region-messages collapsed">
+    <a id="message-drawer-toggle-681bef023d369681bef0237c9c73" class="nav-link d-inline-block popover-region-toggle position-relative" href="#"
+            role="button">
+        <i class="icon fa fa-comment-o fa-fw"  title="Mostrar/ocultar cajón de mensajería" role="img" aria-label="Mostrar/ocultar cajón de mensajería"></i>
+        <div class="count-container hidden" data-region="count-container"
+        aria-label="Hay 0 conversaciones sin leer">0</div>
+    </a>
+</div></li>
+
+                        <li class="nav-item dropdown ml-2 my-auto"></li>
+
+                        
+
+                        <li class="nav-item dropdown ml-3 ml-md-2 mr-2 mr-md-0"><div class="usermenu"><div class="action-menu moodle-actionmenu nowrap-items" id="action-menu-0" data-enhance="moodle-core-actionmenu">
+
+        <div class="menubar d-flex " id="action-menu-0-menubar">
+
+            
+
+
+                <div class="action-menu-trigger">
+                    <div class="dropdown">
+                        <a
+                            href="#"
+                            tabindex="0"
+                            class="nav-link dropdown-toggle icon-no-margin"
+                            id="action-menu-toggle-0"
+                            aria-label="Menú de usuario"
+                            data-toggle="dropdown"
+                            role="button"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                            aria-controls="action-menu-0-menu"
+                        >
+                            
+                            <span class="userbutton"><span class="usertext mr-1">MOLINA BARROSO HORACIO</span><span class="avatars"><span class="avatar current"><img src="https://www.upbvirtual.net/upbvirtual/pluginfile.php/1459014/user/icon/adaptable/f2?rev=44749517" class="userpicture" width="35" height="35" alt="" /></span></span></span>
+                                
+                            <b class="caret"></b>
+                        </a>
+                            <div class="dropdown-menu menu dropdown-menu-right" id="action-menu-0-menu" data-rel="menu-content" aria-labelledby="action-menu-toggle-0" role="menu">
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/my" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-dashboard"></span>Área personal</span>
+                        </a>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/user/profile.php" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-user"></span>Ver perfil</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/user/edit.php" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-cog"></span>Editar perfil</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/grade/report/overview/index.php" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-list-alt"></span>Calificaciones</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/user/preferences.php" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-cog"></span>Preferencias</span>
+                        </a>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/calendar/view.php" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-calendar"></span>Calendario</span>
+                        </a>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/user/profile.php" class="dropdown-item menu-action" role="menuitem" data-title="profile,moodle" tabindex="-1" >
+                                <span class="menu-action-text">Perfil</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/grade/report/overview/index.php" class="dropdown-item menu-action" role="menuitem" data-title="grades,grades" tabindex="-1" >
+                                <span class="menu-action-text">Calificaciones</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/calendar/view.php?view=month" class="dropdown-item menu-action" role="menuitem" data-title="calendar,core_calendar" tabindex="-1" >
+                                <span class="menu-action-text">Calendario</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/message/index.php" class="dropdown-item menu-action" role="menuitem" data-title="messages,message" tabindex="-1" >
+                                <span class="menu-action-text">Mensajes</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/user/files.php" class="dropdown-item menu-action" role="menuitem" data-title="privatefiles,moodle" tabindex="-1" >
+                                <span class="menu-action-text">Archivos privados</span>
+                        </a>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/reportbuilder/index.php" class="dropdown-item menu-action" role="menuitem" data-title="reports,core_reportbuilder" tabindex="-1" >
+                                <span class="menu-action-text">Informes</span>
+                        </a>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                    <div class="dropdown-divider" role="presentation"><span class="filler">&nbsp;</span></div>
+                                                                <a href="https://www.upbvirtual.net/upbvirtual/login/logout.php?sesskey=nEFz4sADYx" class="dropdown-item menu-action" role="menuitem" tabindex="-1" >
+                                <span class="menu-action-text"><span aria-hidden="true" class="mr-1 fa fa-sign-out"></span>Cerrar sesión</span>
+                        </a>
+                            </div>
+                    </div>
+                </div>
+
+        </div>
+
+</div></div></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div id="page-header" class="container d-none d-sm-block">
+    <div style="float: right;">
+    <a href="#" onclick="printCourse();return false;"><i class="icon fa fa-print" aria-hidden="true" tabindex="-1"></i></a>
+    </div>
+        <div class="row d-flex justify-content-start align-items-center h-100">
+            <div class="col-lg-8 p-0">
+                <div class="bd-highlight d-flex">
+                    <div class="pb-2 pr-3 pt-2 bd-highlight d-none d-lg-inline-block"><img src=//www.upbvirtual.net/upbvirtual/pluginfile.php/1/theme_adaptable/logo/1742324982/2xlogo.png id="logo" alt="Logo"></div>
+                    <div id="headertitle" class="bd-highlight pt-2 d-none d-lg-inline-block"><h1><span id="coursetitle">FUNDAMENTOS DE BIG DATA_DVMCD _ 28/04/25 _ COCHABAMBA</span></h1></div>
+                </div>
+                <div id="course-header">
+                    
+                </div>
+            </div>
+            <div class="col-lg-4">
+            </div>
+
+        </div>
+    </div>
+
+        <div id="main-navbar" class="d-none d-sm-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <div class="navbar navbar-expand btco-hover-menu">
+                            <nav aria-label="Enlaces del sitio">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a title="Inicio" class="nav-link" href="https://www.upbvirtual.net/upbvirtual/?redirect=0"><span aria-hidden="true" class="fa-lg mr-1 fa fa-home"></span>Inicio</a></li><li class="nav-item"><a title="Área personal" class="nav-link" href="https://www.upbvirtual.net/upbvirtual/my/index.php"><span aria-hidden="true" class="fa-lg mr-1 fa fa-dashboard"></span>Área personal</a></li><li class="nav-item"><a title="Cursos" class="nav-link" href="https://www.upbvirtual.net/upbvirtual/my/courses.php"><span aria-hidden="true" class="fa-lg mr-1 fa fa-th"></span>Cursos</a></li><li class="nav-item"><a title="Eventos" class="nav-link" href="https://www.upbvirtual.net/upbvirtual/calendar/view.php"><span aria-hidden="true" class="fa-lg mr-1 fa fa-calendar"></span>Eventos</a></li><li class="nav-item dropdown my-auto"><a href="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131999&amp;rownum=0&amp;useridlistid=681bef02316ab270255764&amp;action" class="nav-link dropdown-toggle my-auto" role="button" id="main-navigation1" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownmain-navigation1" data-target="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131999&amp;rownum=0&amp;useridlistid=681bef02316ab270255764&amp;action" data-toggle="dropdown" title="Este curso"><span aria-hidden="true" class="mr-1 fa-lg fa fa-sitemap"></span><span class="menutitle">Este curso</span></a><ul role="menu" class="dropdown-menu" id="dropdownmain-navigation1" aria-labelledby="main-navigation1"><li><a title="Gente" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/user/index.php?id=32243"><span aria-hidden="true" class="icon mr-1 fa fa-users" title="Gente"><span class="sr-only">Gente</span></span>Gente</a></li><li><a title="Calificaciones" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/grade/report/index.php?id=32243"><i class="icon fa fa-table fa-fw"  title="Calificaciones" role="img" aria-label="Calificaciones"></i>Calificaciones</a></li><li><a title="Foros" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/mod/forum/index.php?id=32243"><img class="icon" alt="Foro" title="Foro" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/forum/1742324982/monologo" />Foros</a></li><li><a title="Recursos" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/resources.php?id=32243"><img class="icon" alt="Página" title="Página" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/mod_page/1742324982/monologo" />Recursos</a></li><li><a title="Tareas" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/mod/assign/index.php?id=32243"><img class="icon" alt="Tarea" title="Tarea" src="https://www.upbvirtual.net/upbvirtual/theme/image.php/adaptable/assign/1742324982/monologo" />Tareas</a></li><li class="nav-item dropdown my-auto"><a href="#" class="nav-link dropdown-toggle my-auto" role="button" id="main-navigation12" aria-haspopup="true" aria-expanded="false" aria-controls="dropdownmain-navigation12" data-target="#" data-toggle="dropdown" title="Secciones"><span aria-hidden="true" class="icon fa-lg fa fa-list-ol" title="Secciones"><span class="sr-only">Secciones</span></span>Secciones</a><ul role="menu" class="dropdown-menu" id="dropdownmain-navigation12" aria-labelledby="main-navigation12"><li><a title="General" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">General</a></li><li><a title="BIBLIOGRAFIA Y HERRAMIENTAS" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">BIBLIOGRAFIA Y HERRAMIENTAS</a></li><li><a title="PRIMERA SEMANA" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">PRIMERA SEMANA</a></li><li><a title="Actividades de la Primera Semana" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">Actividades de la Primera Semana</a></li><li><a title="SEGUNDA SEMANA" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">SEGUNDA SEMANA</a></li><li><a title="Actividades de la Segunda Semana" class="dropdown-item" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243">Actividades de la Segunda Semana</a></li></ul></li></ul></li><li class="nav-item"><a class="nav-link" href="http://campusvirtual.upb.edu/soporte/"><span class="fa fa-question-circle fa-lg"></span> Soporte Técnico</a></li>
+                                    
+                                </ul>
+                            </nav>
+        
+                            <ul class="navbar-nav ml-auto d-flex flex-wrap">
+        
+        
+                                <li class="nav-item mx-0 hbll">
+                                    <a class="nav-link moodlewidth" href="javascript:void(0);" title="Pantalla completa">
+                                        <i class="fa fa-expand fa-lg" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="nav-item mx-0 sbll">
+                                    <a class="nav-link moodlewidth" href="javascript:void(0);" title="Vista estándar">
+                                        <i class="fa fa-compress fa-lg" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</header>
+
+<script type="text/javascript">
+function printCourse() {
+    console.log('Enter printCourse');
+    //let divContents = document.getElementById("GFG").innerHTML;
+    let divContents = document.getElementById("page-content").innerHTML;
+    let title = document.getElementById("page-content").innerHTML;
+    let printWindow = window.open('', '', 'height=900, width=700');
+    printWindow.document.open();
+    printWindow.document.write(`
+        <html>
+        <head>
+            <link rel="stylesheet" type="text/css" href="https://www.upbvirtual.net/upbvirtual/theme/styles.php/adaptable/1738254790_1627585395/all" />
+            <title>Contenido Curso</title>
+            <style>
+                body { font-family: Arial, sans-serif; }
+                h1 { color: #333; }
+            </style>
+        </head>
+        <body>
+            ${divContents}
+            </body>
+        </html>
+    `);
+    printWindow.document.close();
+    //printWindow.print();
+    printWindow.onload = function() {
+        console.log('Print window is fully loaded');
+        printWindow.print(); // Ejecutar la acción de impresión
+    };
+}
+</script>
+
+
+<div  class="drawer drawer-left drawer-primary d-print-none not-initialized" data-region="fixed-drawer" id="theme_adaptable-drawers-primary" data-preference="" data-state="show-drawer-primary" data-forceopen="0" data-close-on-resize="1">
+    <div class="drawerheader">
+        <button
+            class="btn drawertoggle icon-no-margin hidden"
+            data-toggler="drawers"
+            data-action="closedrawer"
+            data-target="theme_adaptable-drawers-primary"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Cerrar caja"
+        >
+            <i class="icon fa fa-times fa-fw" aria-hidden="true"  ></i>
+        </button>
+                    
+
+        <div class="drawerheadercontent hidden">
+            
+        </div>
+    </div>
+    <div class="drawercontent drag-container" data-usertour="scroller">
+                <div class="list-group">
+                <a href="https://www.upbvirtual.net/upbvirtual/?redirect=0" class="list-group-item list-group-item-action" >
+                    Inicio
+                </a>
+                <a href="https://www.upbvirtual.net/upbvirtual/my/index.php" class="list-group-item list-group-item-action" >
+                    Área personal
+                </a>
+                <a href="https://www.upbvirtual.net/upbvirtual/my/courses.php" class="list-group-item list-group-item-action" >
+                    Cursos
+                </a>
+                <a href="https://www.upbvirtual.net/upbvirtual/calendar/view.php" class="list-group-item list-group-item-action" >
+                    Eventos
+                </a>
+                <a id="drop-down-10002" href="#" class="list-group-item list-group-item-action icons-collapse-expand collapsed d-flex" data-toggle="collapse" data-target="#drop-down-menu-10002" aria-expanded="false" aria-controls="drop-down-menu-10002">
+                    Este curso
+                    <span class="ml-auto expanded-icon icon-no-margin mx-2">
+                        <i class="icon fa fa-caret-down fa-fw" aria-hidden="true"  ></i>
+                        <span class="sr-only">
+                            Colapsar
+                        </span>
+                    </span>
+                    <span class="ml-auto collapsed-icon icon-no-margin mx-2">
+                        <i class="icon fa fa-caret-right fa-fw" aria-hidden="true"  ></i>
+                        <span class="sr-only">
+                            Expandir
+                        </span>
+                    </span>
+                </a>
+                <div class="collapse list-group-item p-0 border-0" role="menu" id="drop-down-menu-10002" aria-labelledby="drop-down-10002">
+                            <a id="drop-down-100003" href="#" class="list-group-item list-group-item-action icons-collapse-expand collapsed d-flex" data-toggle="collapse" data-target="#drop-down-menu-100003" aria-expanded="false" aria-controls="drop-down-menu-100003">
+                                SeccionesSecciones
+                                <span class="ml-auto expanded-icon icon-no-margin mx-2">
+                                    <i class="icon fa fa-caret-down fa-fw" aria-hidden="true"  ></i>
+                                    <span class="sr-only">
+                                        Colapsar
+                                    </span>
+                                </span>
+                                <span class="ml-auto collapsed-icon icon-no-margin mx-2">
+                                    <i class="icon fa fa-caret-right fa-fw" aria-hidden="true"  ></i>
+                                    <span class="sr-only">
+                                        Expandir
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="collapse list-group-item p-0 border-0" role="menu" id="drop-down-menu-100003" aria-labelledby="drop-down-100003">
+                                    <a href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243" class="pl-5 bg-light list-group-item list-group-item-action">General</a>
+                                    <a href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243" class="pl-5 bg-light list-group-item list-group-item-action">BIBLIOGRAFIA Y HERRAMIENTAS</a>
+                                    <a href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243" class="pl-5 bg-light list-group-item list-group-item-action">PRIMERA SEMANA</a>
+                                    <a href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243" class="pl-5 bg-light list-group-item list-group-item-action">Actividades de la Primera Semana</a>
+                                    <a href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243" class="pl-5 bg-light list-group-item list-group-item-action">SEGUNDA SEMANA</a>
+                                    <a href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243" class="pl-5 bg-light list-group-item list-group-item-action">Actividades de la Segunda Semana</a>
+                            </div>
+                            <a href="https://www.upbvirtual.net/upbvirtual/user/index.php?id=32243" class="list-group-item list-group-item-action" >
+                                GenteGente
+                            </a>
+                            <a href="https://www.upbvirtual.net/upbvirtual/grade/report/index.php?id=32243" class="list-group-item list-group-item-action" >
+                                Calificaciones
+                            </a>
+                            <a href="https://www.upbvirtual.net/upbvirtual/mod/forum/index.php?id=32243" class="list-group-item list-group-item-action" >
+                                Foros
+                            </a>
+                            <a href="https://www.upbvirtual.net/upbvirtual/course/resources.php?id=32243" class="list-group-item list-group-item-action" >
+                                Recursos
+                            </a>
+                            <a href="https://www.upbvirtual.net/upbvirtual/mod/assign/index.php?id=32243" class="list-group-item list-group-item-action" >
+                                Tareas
+                            </a>
+                </div>
+                <a href="http://campusvirtual.upb.edu/soporte/" class="list-group-item list-group-item-action" >
+                     Soporte Técnico
+                </a>
+                <a href="http://campusvirtual.upb.edu/soporte/" class="list-group-item list-group-item-action" >
+                     Soporte Técnico
+                </a>
+        </div>
+
+    </div>
+</div><div id="page" class="drawers"><div class="drawer-toggles d-flex">
+    <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
+        <button
+            class="btn icon-no-margin"
+            data-toggler="drawers"
+            data-action="toggle"
+            data-target="theme_adaptable-drawers-courseindex"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Abrir índice del curso"
+        >
+        <span class="sr-only">Abrir índice del curso</span>
+            <i class="icon fa fa-list fa-fw" aria-hidden="true"  ></i>
+        </button>
+    </div>
+</div><div class="drawer-toggles d-flex">
+    <div class="drawer-toggler drawer-right-toggle ml-auto d-print-none">
+        <button
+            class="btn icon-no-margin"
+            data-toggler="drawers"
+            data-action="toggle"
+            data-target="theme_adaptable-drawers-sidepost"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Abrir cajón de bloques"
+        >
+            <span class="sr-only">Abrir cajón de bloques</span>
+            <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw" aria-hidden="true"  ></i></span>
+            <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"  ></i></span>
+        </button>
+    </div>
+</div><div id="maincontainer" class="container outercont"><div class="row"><div id="page-second-header" class="col-12 pt-3 pb-3 d-flex">
+    <div class="d-flex flex-fill flex-wrap align-items-center">
+        <div id="page-navbar" class="mr-auto">
+            <nav role="navigation" aria-label="Ruta de navegación"><ol  class="breadcrumb d-flex align-items-center"><i title="Inicio" class="fa fa-folder-open fa-lg"></i><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="https://www.upbvirtual.net/upbvirtual/my/courses.php"><span itemprop="title">Mis cursos</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="https://www.upbvirtual.net/upbvirtual/course/index.php?categoryid=3"><span itemprop="title">Ciencias Empresariales y Derecho</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" title="FUNDAMENTOS DE BIG DATA_DVMCD _ 28/04/25 _ COCHABAMBA" href="https://www.upbvirtual.net/upbvirtual/course/view.php?id=32243"><span itemprop="title">FunBigData04.25</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="https://www.upbvirtual.net/upbvirtual/course/section.php?id=265454"><span itemprop="title">Actividades de la Primera Semana</span></a></span></li><span class="separator"><i class="fa-angle-right fa"></i></span><li><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" title="Tarea" aria-current="page" href="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131999"><span itemprop="title">Extra: visualización de arbol de dependencia NLP</span></a></span></li></ol></nav>
+        </div>
+    </div>
+</div></div><div id="page-content" class="row"><div id="region-main-box" class="col-12"><section id="region-main"><span class="notifications" id="user-notifications"></span><div class="secondary-navigation">
+    <nav class="moremenu navigation">
+        <ul id="moremenu--" role="menubar" class="nav more-nav ">
+            <li role="none" class="nav-item dropdown dropdownmoremenu d-none" data-region="morebutton">
+                <a class="dropdown-toggle nav-link " href="#" id="moremenu-dropdown-" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="-1">
+                    Más
+                </a>
+                <ul class="dropdown-menu dropdown-menu-left" data-region="moredropdown" aria-labelledby="moremenu-dropdown-" role="menu">
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div><span id="maincontent"></span>
+    <h2>Extra: visualización de arbol de dependencia NLP</h2>
+<div class="activity-header" data-for="page-activity-header">
+        <span class="sr-only">Requisitos de finalización</span>
+        <div data-region="activity-information" data-activityname="Extra: visualización de arbol de dependencia NLP" class="activity-information">
+
+            <div class="completion-info" data-region="completion-info">
+                                <button class="btn btn-outline-secondary btn-sm text-nowrap" data-action="toggle-manual-completion" data-toggletype="manual:mark-done" data-cmid="1131999" data-activityname="Extra: visualización de arbol de dependencia NLP" data-withavailability="0" title="Marcar Extra: visualización de arbol de dependencia NLP como completado" aria-label="Marcar Extra: visualización de arbol de dependencia NLP como completado" >
+                                    Marcar como hecha
+                                </button>
+                        
+            </div>
+
+    <div data-region="activity-dates" class="activity-dates">
+            <div>
+                <strong>Cierre:</strong> lunes, 20 de mayo de 2024, 23:59
+            </div>
+    </div>
+</div>
+        <div class="activity-description" id="intro">
+            <div class="box generalbox boxaligncenter"></div>
+        </div>
+    </div><div role="main"><div class="container-fluid mb-4">
+    <div class="row">
+        <div class="col-xs-6 mr-3">
+                    <div class="singlebutton">
+                        <form method="get" action="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php" >
+                                <input type="hidden" name="id" value="1131999">
+                                <input type="hidden" name="action" value="editsubmission">
+                            <button type="submit" class="btn btn-primary"
+                                id="single_button681bef0237c9c77"
+                                
+                                
+                                >Agregar entrega</button>
+                        </form>
+                    </div>
+        </div>
+    </div>
+</div><div class="submissionstatustable"><h3>Estado de la entrega</h3><div class="box boxaligncenter submissionsummarytable"><div class="table-responsive"><table class="generaltable table-bordered">
+<tbody><tr class="">
+<th class="cell c0" style="" scope="row">Estado de la entrega</th>
+<td class="cell c1 lastcol" style="">Todavía no se han realizado envíos</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Estado de la calificación</th>
+<td class="submissionnotgraded cell c1 lastcol" style="">Sin calificar</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Tiempo restante</th>
+<td class="overdue cell c1 lastcol" style="">La Tarea está retrasada por: 351 días 19 horas</td>
+</tr>
+<tr class="">
+<th class="cell c0" style="" scope="row">Última modificación</th>
+<td class="cell c1 lastcol" style="">-</td>
+</tr>
+<tr class="lastrow">
+<th class="cell c0" style="" scope="row">Comentarios de la entrega</th>
+<td class="cell c1 lastcol" style=""><div class="box boxaligncenter plugincontentsummary summary_assignsubmission_comments_2397289"><div class="commentscontainer"><div style="display:none" id="cmt-tmpl"><div class="comment-message"><div class="comment-message-meta mr-3"><span class="picture">___picture___</span><span class="user">___name___</span> - <span class="time">___time___</span></div><div class="text">___content___</div></div></div><div class="mdl-left"><a class="showcommentsnonjs" href="https://www.upbvirtual.net/upbvirtual/mod/assign/view.php?id=1131999&amp;rownum=0&amp;useridlistid=681bef02316ab270255764&amp;action&amp;nonjscomment=1&amp;comment_itemid=2397289&amp;comment_context=1536687&amp;comment_component=assignsubmission_comments&amp;comment_area=submission_comments">Mostrar comentarios</a><a class="comment-link" id="comment-link-681bef02458cf" href="#" role="button" aria-expanded="false"><i class="icon fa fa-caret-right fa-fw"  title="Comentarios" role="img" aria-label="Comentarios"></i><span id="comment-link-text-681bef02458cf">Comentarios (0)</span></a><div id="comment-ctrl-681bef02458cf" class="comment-ctrl"><ul id="comment-list-681bef02458cf" class="comment-list"><li class="first"></li></ul><div id="comment-pagination-681bef02458cf" class="comment-pagination"></div><div class="comment-area"><div class="db"><label for="dlg-content-681bef02458cf" class="sr-only">Comentario</label><textarea name="content" rows="2" id="dlg-content-681bef02458cf" aria-label="Agregar un comentario..." cols="20"></textarea></div><div class="fd" id="comment-action-681bef02458cf"><a id="comment-action-post-681bef02458cf" href="#">Guardar comentario</a><span> | </span><a id="comment-action-cancel-681bef02458cf" href="#">Cancelar</a></div></div><div class="clearer"></div></div></div></div></div></td>
+</tr>
+</tbody>
+</table>
+</div></div></div></div><nav class="activity_footer activity-navigation">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="float-left">
+                <a href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1131998&forceview=1" id="prev-activity-link" class="previous_activity prevnext" ><span class="nav_icon"><i class="fa fa-angle-double-left"></i></span><span class="text"><span class="nav_guide">Actividad previa</span><br>Notebook - Conectar a SQL Server</span></a>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="float-right">
+                <a href="https://www.upbvirtual.net/upbvirtual/mod/resource/view.php?id=1132003&forceview=1" id="next-activity-link" class="next_activity prevnext" ><span class="text"><span class="nav_guide">Próxima actividad</span><br>Codigo Ejemplo Base de Datos Hamburguesas</span><span class="nav_icon"><i class="fa fa-angle-double-right"></i></span></a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="jumpnav">
+    <div class="jumpmenu">
+    <form method="post" action="https://www.upbvirtual.net/upbvirtual/course/jumpto.php" class="d-flex flex-wrap align-items-center" id="url_select_f681bef0237c9c74">
+        <input type="hidden" name="sesskey" value="nEFz4sADYx">
+            <label for="jump-to-activity" class="sr-only">
+                Ir a...
+            </label>
+        <select  id="jump-to-activity" class="custom-select jumpmenu" name="jump"
+                 >
+                    <option value="" selected>Ir a...</option>
+                    <option value="/mod/forum/view.php?id=1131934&amp;forceview=1" >Avisos</option>
+                    <option value="/mod/resource/view.php?id=1131937&amp;forceview=1" >CV Resumido del docente.</option>
+                    <option value="/mod/resource/view.php?id=1131939&amp;forceview=1" >Sílabo del Módulo</option>
+                    <option value="/mod/page/view.php?id=1131941&amp;forceview=1" >CRONOGRAMA</option>
+                    <option value="/mod/url/view.php?id=1131944&amp;forceview=1" >Sala de Zoom - Videoconferencias Primera Semana</option>
+                    <option value="/mod/url/view.php?id=1131947&amp;forceview=1" >Link de las sesiones grabadas</option>
+                    <option value="/mod/url/view.php?id=1131948&amp;forceview=1" >link de las notas de la pizarra en clase</option>
+                    <option value="/mod/folder/view.php?id=1131949&amp;forceview=1" >Bibliografía extensiva y complementaria</option>
+                    <option value="/mod/resource/view.php?id=1131950&amp;forceview=1" >Lecturas para los Cuestionarios</option>
+                    <option value="/mod/resource/view.php?id=1131951&amp;forceview=1" >Descarga el software necesario</option>
+                    <option value="/mod/url/view.php?id=1131952&amp;forceview=1" >SQL online</option>
+                    <option value="/mod/resource/view.php?id=1131953&amp;forceview=1" >SQL Cheatsheet</option>
+                    <option value="/mod/url/view.php?id=1131955&amp;forceview=1" >sqlite</option>
+                    <option value="/mod/resource/view.php?id=1131958&amp;forceview=1" >Ejercicio extra - API Spotify</option>
+                    <option value="/mod/resource/view.php?id=1131959&amp;forceview=1" >Notebook API Spotify</option>
+                    <option value="/mod/resource/view.php?id=1131960&amp;forceview=1" >Notebook API Open Meteo</option>
+                    <option value="/mod/forum/view.php?id=1131962&amp;forceview=1" >Video IoT</option>
+                    <option value="/mod/url/view.php?id=1131965&amp;forceview=1" >Cuestionario Fundamentos Big Data</option>
+                    <option value="/mod/url/view.php?id=1131966&amp;forceview=1" >Video Big Data en el Cine</option>
+                    <option value="/mod/url/view.php?id=1131967&amp;forceview=1" >Video Big Data - Kenneth Cukier</option>
+                    <option value="/mod/resource/view.php?id=1131969&amp;forceview=1" >1. Fundamentos del Big Data</option>
+                    <option value="/mod/assign/view.php?id=1131970&amp;forceview=1" >Entrega ejercicio extra - API Spotify, todas las entregas en formato PDF</option>
+                    <option value="/mod/resource/view.php?id=1131976&amp;forceview=1" >Notebook 3 Procesamiento de Lenguaje Natural VERSION 2</option>
+                    <option value="/mod/resource/view.php?id=1131977&amp;forceview=1" >Notebook  NLP + Spotify</option>
+                    <option value="/mod/url/view.php?id=1131980&amp;forceview=1" >Cuestionario Estructura de Datos</option>
+                    <option value="/mod/url/view.php?id=1131981&amp;forceview=1" >Link resumen para el cuestionario</option>
+                    <option value="/mod/resource/view.php?id=1131982&amp;forceview=1" >2.  Tipos de Datos y su Estructura</option>
+                    <option value="/mod/url/view.php?id=1131983&amp;forceview=1" >Link Herramienta Clustering palabras</option>
+                    <option value="/mod/resource/view.php?id=1131984&amp;forceview=1" >Práctica 1 SEO clustering de palabras</option>
+                    <option value="/mod/resource/view.php?id=1131985&amp;forceview=1" >Ejemplo Procesamiento de Lenguaje Natural .ipynb</option>
+                    <option value="/mod/url/view.php?id=1131988&amp;forceview=1" >Cuestionario SQL</option>
+                    <option value="/mod/resource/view.php?id=1131989&amp;forceview=1" >3. Bases de datos relacionales</option>
+                    <option value="/mod/resource/view.php?id=1131990&amp;forceview=1" >Presentación SQL diapositivas</option>
+                    <option value="/mod/resource/view.php?id=1131991&amp;forceview=1" >Ejercicio 1 SQL</option>
+                    <option value="/mod/resource/view.php?id=1131992&amp;forceview=1" >Ejercicio 1 SQL  - Corregido</option>
+                    <option value="/mod/url/view.php?id=1131995&amp;forceview=1" >Cuestionario de Bases de Datos Relacionales</option>
+                    <option value="/mod/assign/view.php?id=1131996&amp;forceview=1" >Entrega Práctica 1. SEO Cluster de palabras</option>
+                    <option value="/mod/resource/view.php?id=1131997&amp;forceview=1" >Práctica 2 (SQL)</option>
+                    <option value="/mod/resource/view.php?id=1131998&amp;forceview=1" >Notebook - Conectar a SQL Server</option>
+                    <option value="/mod/resource/view.php?id=1132003&amp;forceview=1" >Codigo Ejemplo Base de Datos Hamburguesas</option>
+                    <option value="/mod/resource/view.php?id=1132004&amp;forceview=1" >Instrucciones instalacion MongoDB</option>
+                    <option value="/mod/assign/view.php?id=1132007&amp;forceview=1" >Entrega Práctica 2 (SQL)</option>
+                    <option value="/mod/url/view.php?id=1132010&amp;forceview=1" >Cuestionario Infraestructura del Big Data</option>
+                    <option value="/mod/resource/view.php?id=1132011&amp;forceview=1" >4. Bases de datos no relacionales parte I</option>
+                    <option value="/mod/url/view.php?id=1132013&amp;forceview=1" >Cuestionario Bases de datos no relacionales</option>
+                    <option value="/mod/resource/view.php?id=1132014&amp;forceview=1" >Práctica 3 Base NoSQL - MongoDB</option>
+                    <option value="/mod/url/view.php?id=1132017&amp;forceview=1" >Cuestionario Mongo DB y ML</option>
+                    <option value="/mod/resource/view.php?id=1132018&amp;forceview=1" >Ejercicio 1 MongoDB</option>
+                    <option value="/mod/resource/view.php?id=1132019&amp;forceview=1" >Práctica 4 Bases NoSQL - grafos</option>
+                    <option value="/mod/resource/view.php?id=1132020&amp;forceview=1" >Instalación Neo4j</option>
+                    <option value="/mod/resource/view.php?id=1132021&amp;forceview=1" >link descarga otras versiones no windows - neo4j</option>
+                    <option value="/mod/resource/view.php?id=1132022&amp;forceview=1" >codigo Neo4j con comentarios</option>
+                    <option value="/mod/resource/view.php?id=1132023&amp;forceview=1" >codigo Neo4j ejecutable</option>
+                    <option value="/mod/resource/view.php?id=1132024&amp;forceview=1" >IPYNB Prediccion de precios con airbnb</option>
+                    <option value="/mod/url/view.php?id=1132027&amp;forceview=1" >Cuestionario MQL</option>
+                    <option value="/mod/assign/view.php?id=1132028&amp;forceview=1" >Entrega Práctica 3 Base NoSQL - MongoDB</option>
+                    <option value="/mod/resource/view.php?id=1132029&amp;forceview=1" >5. Base NoSQL orientada a grafos</option>
+                    <option value="/mod/resource/view.php?id=1132030&amp;forceview=1" >Practica 4 Bases NoSQL</option>
+                    <option value="/mod/resource/view.php?id=1132033&amp;forceview=1" >Codigo clase</option>
+                    <option value="/mod/url/view.php?id=1132034&amp;forceview=1" >Algoritmo Page Ranking de Google (bibliografía opcional)</option>
+                    <option value="/mod/url/view.php?id=1132039&amp;forceview=1" >Cuestionario Bases de datos y machine learning</option>
+                    <option value="/mod/assign/view.php?id=1132040&amp;forceview=1" >Entrega Práctica 4 Bases NoSQL - grafos</option>
+                    <option value="/mod/resource/view.php?id=1132041&amp;forceview=1" >Instrucciones Trabajo Final - Alternativa 1</option>
+                    <option value="/mod/resource/view.php?id=1132042&amp;forceview=1" >Instrucciones Trabajo Final - Alternativa 2</option>
+                    <option value="/mod/url/view.php?id=1132043&amp;forceview=1" >Ejemplo Trigger Airbnb en Mongo DB + Chat Gpt</option>
+                    <option value="/mod/url/view.php?id=1132044&amp;forceview=1" >Documentación Integración MongoDB y API de ChatGpt</option>
+                    <option value="/mod/url/view.php?id=1132045&amp;forceview=1" >Documentación Integración MongoDB y API de Gemini</option>
+                    <option value="/mod/assign/view.php?id=1132046&amp;forceview=1" >Subir Trabajo Final aquí</option>
+                    <option value="/mod/resource/view.php?id=1132049&amp;forceview=1" >Neo4j + Jupyter</option>
+        </select>
+            <noscript>
+                <input type="submit" class="btn btn-secondary ml-1" value="Ir">
+            </noscript>
+    </form>
+</div>
+
+</div></section></div></div></div><div
+    id="drawer-681bef023fe90681bef0237c9c75"
+    class=" drawer bg-white hidden"
+    aria-expanded="false"
+    aria-hidden="true"
+    data-region="right-hand-drawer"
+    role="region"
+    tabindex="0"
+>
+            <div id="message-drawer-681bef023fe90681bef0237c9c75" class="message-app" data-region="message-drawer" role="region">
+            <div class="d-flex justify-content-between align-items-center py-1 px-2 border-bottom bg-messageheader">
+                <h2 class="mb-0">Mensajería</h2>
+                <div class="closewidget">
+                    <a class="" data-action="closedrawer" href="#" title="Cerrar">
+                        <i class="icon fa fa-window-close fa-fw" aria-hidden="true"  ></i>
+                    </a>
+                </div>
+            </div>
+            <div class="header-container position-relative" data-region="header-container">
+                <div class="hidden border-bottom p-1 px-sm-2" aria-hidden="true" data-region="view-contacts">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch">
+                            <a class="h-100 d-flex align-items-center mr-2" href="#" data-route-back role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw" aria-hidden="true"  ></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"  ></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw" aria-hidden="true"  ></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Contactos
+                        </div>
+                        <div class="ml-auto">
+                            <a href="#" data-route="view-search" role="button" aria-label="Búsqueda">
+                                <i class="icon fa fa-search fa-fw" aria-hidden="true"  ></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>                
+                <div
+                    class="hidden bg-white position-relative border-bottom p-1 px-sm-2"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                >
+                    <div class="hidden" data-region="header-content"></div>
+                    <div class="hidden" data-region="header-edit-mode">
+                        
+                        <div class="d-flex p-2 align-items-center">
+                            Mensajes seleccionados:
+                            <span class="ml-1" data-region="message-selected-court">1</span>
+                            <button type="button" class="ml-auto close" aria-label="Cancelar selección de mensaje"
+                                data-action="cancel-edit-mode">
+                                    <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div data-region="header-placeholder">
+                        <div class="d-flex">
+                            <div
+                                class="ml-2 rounded-circle bg-pulse-grey align-self-center"
+                                style="height: 38px; width: 38px"
+                            >
+                            </div>
+                            <div class="ml-2 " style="flex: 1">
+                                <div
+                                    class="mt-1 bg-pulse-grey w-75"
+                                    style="height: 16px;"
+                                >
+                                </div>
+                            </div>
+                            <div
+                                class="ml-2 bg-pulse-grey align-self-center"
+                                style="height: 16px; width: 20px"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="hidden position-absolute z-index-1"
+                        data-region="confirm-dialogue-container"
+                        style="top: 0; bottom: -1px; right: 0; left: 0; background: rgba(0,0,0,0.3);"
+                    ></div>
+                </div>                <div class="border-bottom p-1 px-sm-2" aria-hidden="false"  data-region="view-overview">
+                    <div class="d-flex align-items-center">
+                        <div class="input-group simplesearchform">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Búsqueda"
+                                aria-label="Búsqueda"
+                                data-region="view-overview-search-input"
+                            >
+                            <div class="input-group-append">
+                                <span class="icon-no-margin btn btn-submit">
+                                    <i class="icon fa fa-search fa-fw" aria-hidden="true"  ></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ml-2">
+                            <a
+                                href="#"
+                                data-route="view-settings"
+                                data-route-param="52574"
+                                aria-label="Ajustes"
+                                role="button"
+                            >
+                                <i class="icon fa fa-cog fa-fw" aria-hidden="true"  ></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-right mt-sm-3">
+                        <a href="#" data-route="view-contacts" role="button">
+                            <i class="icon fa fa-user fa-fw" aria-hidden="true"  ></i>
+                            Contactos
+                            <span
+                                class="badge bg-primary text-white ml-2 hidden"
+                                data-region="contact-request-count"
+                            >
+                                <span aria-hidden="true">0</span>
+                                <span class="sr-only">Hay 0 solicitudes de contacto pendientes</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hidden border-bottom p-1 px-sm-2 view-search"  aria-hidden="true" data-region="view-search">
+                    <div class="d-flex align-items-center">
+                        <a
+                            class="mr-2 align-self-stretch d-flex align-items-center"
+                            href="#"
+                            data-route-back
+                            data-action="cancel-search"
+                            role="button"
+                        >
+                            <div class="icon-back-in-drawer">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw" aria-hidden="true"  ></i></span>
+                                <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"  ></i></span>
+                            </div>
+                            <div class="icon-back-in-app">
+                                <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw" aria-hidden="true"  ></i></span>
+                            </div>                        </a>
+                        <div class="input-group simplesearchform">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Búsqueda"
+                                aria-label="Búsqueda"
+                                data-region="search-input"
+                            >
+                            <div class="input-group-append">
+                                <button
+                                    class="btn btn-submit icon-no-margin"
+                                    type="button"
+                                    data-action="search"
+                                    aria-label="Búsqueda"
+                                >
+                                    <span data-region="search-icon-container">
+                                        <i class="icon fa fa-search fa-fw" aria-hidden="true"  ></i>
+                                    </span>
+                                    <span class="hidden" data-region="loading-icon-container">
+                                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+                <div class="hidden border-bottom p-1 px-sm-2 pb-sm-3" aria-hidden="true" data-region="view-settings">
+                    <div class="d-flex align-items-center">
+                        <div class="align-self-stretch" >
+                            <a class="h-100 d-flex mr-2 align-items-center" href="#" data-route-back role="button">
+                                <div class="icon-back-in-drawer">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-chevron-left fa-fw" aria-hidden="true"  ></i></span>
+                                    <span class="dir-ltr-hide"><i class="icon fa fa-chevron-right fa-fw" aria-hidden="true"  ></i></span>
+                                </div>
+                                <div class="icon-back-in-app">
+                                    <span class="dir-rtl-hide"><i class="icon fa fa-times fa-fw" aria-hidden="true"  ></i></span>
+                                </div>                            </a>
+                        </div>
+                        <div>
+                            Configuración
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body-container position-relative" data-region="body-container">
+                
+                <div
+                    class="hidden"
+                    data-region="view-contact"
+                    aria-hidden="true"
+                >
+                    <div class="p-2 pt-3" data-region="content-container"></div>
+                </div>                <div class="hidden h-100" data-region="view-contacts" aria-hidden="true" data-user-id="52574">
+                    <div class="d-flex flex-column h-100">
+                        <div class="p-3 border-bottom">
+                            <ul class="nav nav-pills nav-fill" role="tablist">
+                                <li class="nav-item">
+                                    <a
+                                        id="contacts-tab-681bef023fe90681bef0237c9c75"
+                                        class="nav-link active"
+                                        href="#contacts-tab-panel-681bef023fe90681bef0237c9c75"
+                                        data-toggle="tab"
+                                        data-action="show-contacts-section"
+                                        role="tab"
+                                        aria-controls="contacts-tab-panel-681bef023fe90681bef0237c9c75"
+                                        aria-selected="true"
+                                    >
+                                        Contactos
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        id="requests-tab-681bef023fe90681bef0237c9c75"
+                                        class="nav-link"
+                                        href="#requests-tab-panel-681bef023fe90681bef0237c9c75"
+                                        data-toggle="tab"
+                                        data-action="show-requests-section"
+                                        role="tab"
+                                        aria-controls="requests-tab-panel-681bef023fe90681bef0237c9c75"
+                                        aria-selected="false"
+                                    >
+                                        Peticiones
+                                        <span class="badge bg-primary text-white ml-2 hidden"
+                                            data-region="contact-request-count"
+                                        >
+                                            <span aria-hidden="true">0</span>
+                                            <span class="sr-only">Hay 0 solicitudes de contacto pendientes</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content d-flex flex-column h-100">
+                                            <div
+                    class="tab-pane fade show active h-100 lazy-load-list"
+                    aria-live="polite"
+                    data-region="lazy-load-list"
+                    data-user-id="52574"
+                                        id="contacts-tab-panel-681bef023fe90681bef0237c9c75"
+                    data-section="contacts"
+                    role="tabpanel"
+                    aria-labelledby="contacts-tab-681bef023fe90681bef0237c9c75"
+
+                >
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        No hay contactos
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                    </div>
+                </div>
+                
+                                            <div
+                    class="tab-pane fade h-100 lazy-load-list"
+                    aria-live="polite"
+                    data-region="lazy-load-list"
+                    data-user-id="52574"
+                                        id="requests-tab-panel-681bef023fe90681bef0237c9c75"
+                    data-section="requests"
+                    role="tabpanel"
+                    aria-labelledby="requests-tab-681bef023fe90681bef0237c9c75"
+
+                >
+                    
+                    <div class="hidden text-center p-2" data-region="empty-message-container">
+                        No hay solicitudes de contacto
+                    </div>
+                    <div class="hidden list-group" data-region="content-container">
+                        
+                    </div>
+                    <div class="list-group" data-region="placeholder-container">
+                        
+                    </div>
+                    <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                        <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div
+                    class="view-conversation hidden h-100"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                    data-user-id="52574"
+                    data-midnight="1746590400"
+                    data-message-poll-min="10"
+                    data-message-poll-max="120"
+                    data-message-poll-after-max="300"
+                    style="overflow-y: auto; overflow-x: hidden"
+                >
+                    <div class="position-relative h-100" data-region="content-container" style="overflow-y: auto; overflow-x: hidden">
+                        <div class="content-message-container hidden h-100 px-2 pt-0" data-region="content-message-container" role="log" style="overflow-y: auto; overflow-x: hidden">
+                            <div class="py-3 sticky-top z-index-1 border-bottom text-center hidden" data-region="contact-request-sent-message-container">
+                                <p class="m-0">Solicitud de contacto enviada</p>
+                                <p class="font-italic font-weight-light" data-region="text"></p>
+                            </div>
+                            <div class="p-3 text-center hidden" data-region="self-conversation-message-container">
+                                <p class="m-0">Espacio personal</p>
+                                <p class="font-italic font-weight-light" data-region="text">Guardar borradores de mensajes, notas, etc, para acceder a ellos más tarde.</p>
+                           </div>
+                            <div class="hidden text-center p-3" data-region="more-messages-loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</div>
+                        </div>
+                        <div class="p-4 w-100 h-100 hidden position-absolute z-index-1" data-region="confirm-dialogue-container" style="top: 0; background: rgba(0,0,0,0.3);">
+                            
+                            <div class="p-3 bg-white" data-region="confirm-dialogue" role="alert">
+                                <p class="text-muted" data-region="dialogue-text"></p>
+                                <div class="mb-2 custom-control custom-checkbox hidden" data-region="delete-messages-for-all-users-toggle-container">
+                                    <input type="checkbox" class="custom-control-input" id="delete-messages-for-all-users" data-region="delete-messages-for-all-users-toggle">
+                                    <label class="custom-control-label text-muted" for="delete-messages-for-all-users">
+                                        Borrar para mí y para todos los demás
+                                    </label>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-block">
+                                    <span data-region="dialogue-button-text">Bloque</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-unblock">
+                                    <span data-region="dialogue-button-text">Desbloquear</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-remove-contact">
+                                    <span data-region="dialogue-button-text">Quitar</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-add-contact">
+                                    <span data-region="dialogue-button-text">Añadir</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-selected-messages">
+                                    <span data-region="dialogue-button-text">Borrar</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="confirm-delete-conversation">
+                                    <span data-region="dialogue-button-text">Borrar</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="request-add-contact">
+                                    <span data-region="dialogue-button-text">Enviar solicitud de contacto</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block hidden" data-action="accept-contact-request">
+                                    <span data-region="dialogue-button-text">Aceptar y añadir a los contactos</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-block hidden" data-action="decline-contact-request">
+                                    <span data-region="dialogue-button-text">Rechazar</span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-block" data-action="okay-confirm">OK</button>
+                                <button type="button" class="btn btn-secondary btn-block" data-action="cancel-confirm">Cancelar</button>
+                            </div>
+                        </div>
+                        <div class="px-2 pb-2 pt-0" data-region="content-placeholder">
+                            <div class="h-100 d-flex flex-column">
+                                <div
+                                    class="px-2 pb-2 pt-0 bg-light h-100"
+                                    style="overflow-y: auto"
+                                >
+                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                    <div class="mt-4">
+                                        <div class="mb-4">
+                                            <div class="mx-auto bg-white" style="height: 25px; width: 100px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                        <div class="d-flex flex-column p-2 bg-white rounded mb-2">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="mr-2">
+                                                    <div class="rounded-circle bg-pulse-grey" style="height: 35px; width: 35px"></div>
+                                                </div>
+                                                <div class="mr-4 w-75 bg-pulse-grey" style="height: 16px"></div>
+                                                <div class="ml-auto bg-pulse-grey" style="width: 35px; height: 16px"></div>
+                                            </div>
+                                            <div class="bg-pulse-grey w-100" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-100 mt-2" style="height: 16px"></div>
+                                            <div class="bg-pulse-grey w-75 mt-2" style="height: 16px"></div>
+                                        </div>
+                                    </div>                                </div>
+                            </div>                        </div>
+                    </div>
+                </div>
+                
+                <div
+                    class="hidden"
+                    aria-hidden="true"
+                    data-region="view-group-info"
+                >
+                    <div
+                        class="pt-3 h-100 d-flex flex-column"
+                        data-region="group-info-content-container"
+                        style="overflow-y: auto"
+                    ></div>
+                </div>                <div class="h-100 view-overview-body" aria-hidden="false" data-region="view-overview"  data-user-id="52574">
+                    <div id="message-drawer-view-overview-container-681bef023fe90681bef0237c9c75" class="d-flex flex-column h-100" style="overflow-y: auto">
+                            
+                            
+                            <div
+                                class="section border-0 card rounded-0"
+                                data-region="view-overview-favourites"
+                            >
+                                <div id="view-overview-favourites-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-favourites-target-681bef023fe90681bef0237c9c75"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-favourites-target-681bef023fe90681bef0237c9c75"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw" aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw" aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Destacados</span>
+                                        <small
+                                            class="hidden ml-1"
+                                            data-region="section-total-count-container" aria-labelledby="view-overview-favourites-total-count-label"
+                                        >
+                                            (<span aria-hidden="true" data-region="section-total-count"></span>)
+                                            <span class="sr-only" id="view-overview-favourites-total-count-label">
+                                                 conversaciones en total
+                                            </span>
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                        </span>
+                                        <span
+                                            class="hidden badge rounded-pill bg-primary text-white ml-auto"
+                                            data-region="section-unread-count-container" aria-labelledby="view-overview-favourites-unread-count-label"
+                                        >
+                                            <span aria-hidden="true" data-region="section-unread-count"></span>
+                                            <span class="sr-only" id="view-overview-favourites-unread-count-label">
+                                                Hay  conversaciones sin leer
+                                            </span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="52574"
+                                            id="view-overview-favourites-target-681bef023fe90681bef0237c9c75"
+            aria-labelledby="view-overview-favourites-toggle"
+            data-parent="#message-drawer-view-overview-container-681bef023fe90681bef0237c9c75"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">Sin conversaciones destacadas</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div
+                                class="section border-0 card rounded-0"
+                                data-region="view-overview-group-messages"
+                            >
+                                <div id="view-overview-group-messages-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-group-messages-target-681bef023fe90681bef0237c9c75"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-group-messages-target-681bef023fe90681bef0237c9c75"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw" aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw" aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Grupo</span>
+                                        <small
+                                            class="hidden ml-1"
+                                            data-region="section-total-count-container" aria-labelledby="view-overview-group-messages-total-count-label"
+                                        >
+                                            (<span aria-hidden="true" data-region="section-total-count"></span>)
+                                            <span class="sr-only" id="view-overview-group-messages-total-count-label">
+                                                 conversaciones en total
+                                            </span>
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                        </span>
+                                        <span
+                                            class="hidden badge rounded-pill bg-primary text-white ml-auto"
+                                            data-region="section-unread-count-container" aria-labelledby="view-overview-group-messages-unread-count-label"
+                                        >
+                                            <span aria-hidden="true" data-region="section-unread-count"></span>
+                                            <span class="sr-only" id="view-overview-group-messages-unread-count-label">
+                                                Hay  conversaciones sin leer
+                                            </span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="52574"
+                                            id="view-overview-group-messages-target-681bef023fe90681bef0237c9c75"
+            aria-labelledby="view-overview-group-messages-toggle"
+            data-parent="#message-drawer-view-overview-container-681bef023fe90681bef0237c9c75"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">No hay conversaciónes de grupo</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                            
+                            
+                            <div
+                                class="section border-0 card rounded-0"
+                                data-region="view-overview-messages"
+                            >
+                                <div id="view-overview-messages-toggle" class="card-header rounded-0" data-region="toggle">
+                                    <button
+                                        class="btn btn-link w-100 text-left p-1 p-sm-2 d-flex rounded-0 align-items-center overview-section-toggle collapsed"
+                                        data-toggle="collapse"
+                                        data-target="#view-overview-messages-target-681bef023fe90681bef0237c9c75"
+                                        aria-expanded="false"
+                                        aria-controls="view-overview-messages-target-681bef023fe90681bef0237c9c75"
+                                    >
+                                        <span class="collapsed-icon-container">
+                                            <i class="icon fa fa-caret-right fa-fw" aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="expanded-icon-container">
+                                            <i class="icon fa fa-caret-down fa-fw" aria-hidden="true"  ></i>
+                                        </span>
+                                        <span class="font-weight-bold">Privado</span>
+                                        <small
+                                            class="hidden ml-1"
+                                            data-region="section-total-count-container" aria-labelledby="view-overview-messages-total-count-label"
+                                        >
+                                            (<span aria-hidden="true" data-region="section-total-count"></span>)
+                                            <span class="sr-only" id="view-overview-messages-total-count-label">
+                                                 conversaciones en total
+                                            </span>
+                                        </small>
+                                        <span class="hidden ml-2" data-region="loading-icon-container">
+                                            <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                        </span>
+                                        <span
+                                            class="hidden badge rounded-pill bg-primary text-white ml-auto"
+                                            data-region="section-unread-count-container" aria-labelledby="view-overview-messages-unread-count-label"
+                                        >
+                                            <span aria-hidden="true" data-region="section-unread-count"></span>
+                                            <span class="sr-only" id="view-overview-messages-unread-count-label">
+                                                Hay  conversaciones sin leer
+                                            </span>
+                                        </span>
+                                    </button>
+                                </div>
+                                                            <div
+                                class="collapse border-bottom  lazy-load-list"
+                                aria-live="polite"
+                                data-region="lazy-load-list"
+                                data-user-id="52574"
+                                            id="view-overview-messages-target-681bef023fe90681bef0237c9c75"
+            aria-labelledby="view-overview-messages-toggle"
+            data-parent="#message-drawer-view-overview-container-681bef023fe90681bef0237c9c75"
+
+                            >
+                                
+                                <div class="hidden text-center p-2" data-region="empty-message-container">
+                                            <p class="text-muted mt-2">No hay conversaciones privadas</p>
+
+                                </div>
+                                <div class="hidden list-group" data-region="content-container">
+                                    
+                                </div>
+                                <div class="list-group" data-region="placeholder-container">
+                                            <div class="text-center py-2"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</div>
+
+                                </div>
+                                <div class="w-100 text-center p-3 hidden" data-region="loading-icon-container" >
+                                    <span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                </div>
+                
+                <div
+                    data-region="view-search"
+                    aria-hidden="true"
+                    class="h-100 hidden"
+                    data-user-id="52574"
+                    data-users-offset="0"
+                    data-messages-offset="0"
+                    style="overflow-y: auto"
+                    
+                >
+                    <div class="hidden" data-region="search-results-container" style="overflow-y: auto">
+                        
+                        <div class="d-flex flex-column">
+                            <div class="mb-3 bg-white" data-region="all-contacts-container">
+                                <div data-region="contacts-container"  class="pt-2">
+                                    <h3 class="h6 px-2">Contactos</h3>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div data-region="non-contacts-container" class="pt-2 border-top">
+                                    <h3 class="h6 px-2">No contactos</h3>
+                                    <div class="list-group" data-region="list"></div>
+                                </div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-users">
+                                        <span data-region="button-text">Cargar más</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="bg-white" data-region="messages-container">
+                                <h3 class="h6 px-2 pt-2">Mensajes</h3>
+                                <div class="list-group" data-region="list"></div>
+                                <div class="text-right">
+                                    <button class="btn btn-link text-primary" data-action="load-more-messages">
+                                        <span data-region="button-text">Cargar más</span>
+                                        <span data-region="loading-icon-container" class="hidden"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="hidden p-3 text-center" data-region="no-results-container">No hay resultados</p>
+                        </div>                    </div>
+                    <div class="hidden" data-region="loading-placeholder">
+                        <div class="text-center pt-3 icon-size-4"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</div>
+                    </div>
+                    <div class="p-3 text-center" data-region="empty-message-container">
+                        <p>Buscar personas y mensajes</p>
+                    </div>
+                </div>                
+                <div class="h-100 hidden bg-white" aria-hidden="true" data-region="view-settings">
+                    <div class="hidden" data-region="content-container">
+                        
+                        <div data-region="settings" class="p-3">
+                            <h3 class="h6 font-weight-bold">Privacidad</h3>
+                            <p>Puedes restringir quién puede enviarte mensajes</p>
+                            <div data-preference="blocknoncontacts" class="mb-3">
+                                <fieldset>
+                                    <legend class="sr-only">Aceptar mensajes desde:</legend>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-681bef023fe90681bef0237c9c75-1"
+                                                value="1"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-681bef023fe90681bef0237c9c75-1">
+                                                Únicamente mis contactos
+                                            </label>
+                                        </div>
+                                        <div class="custom-control custom-radio mb-2">
+                                            <input
+                                                type="radio"
+                                                name="message_blocknoncontacts"
+                                                class="custom-control-input"
+                                                id="block-noncontacts-681bef023fe90681bef0237c9c75-0"
+                                                value="0"
+                                            >
+                                            <label class="custom-control-label ml-2" for="block-noncontacts-681bef023fe90681bef0237c9c75-0">
+                                                Mis contactos y cualquier persona de mis cursos
+                                            </label>
+                                        </div>
+                                </fieldset>
+                            </div>
+                        
+                            <div class="hidden" data-region="notification-preference-container">
+                                <h3 class="mb-2 mt-4 h6 font-weight-bold">Preferencias de notificación</h3>
+                            </div>
+                        
+                            <h3 class="mb-2 mt-4 h6 font-weight-bold">General</h3>
+                            <div data-preference="entertosend">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" id="enter-to-send-681bef023fe90681bef0237c9c75" >
+                                    <label class="custom-control-label" for="enter-to-send-681bef023fe90681bef0237c9c75">
+                                        Usar "intro" para enviar
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-region="placeholder-container">
+                        
+                        <div class="d-flex flex-column p-3">
+                            <div class="w-25 bg-pulse-grey h6" style="height: 18px"></div>
+                            <div class="w-75 bg-pulse-grey mb-4" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-3">
+                                    <div class="bg-pulse-grey rounded-circle" style="width: 18px; height: 18px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-50 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-4">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-25 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                            <div class="w-25 bg-pulse-grey h6 mb-3 mt-2" style="height: 18px"></div>
+                            <div class="mb-3">
+                                <div class="w-100 d-flex mb-2 align-items-center">
+                                    <div class="bg-pulse-grey w-25" style="width: 18px; height: 27px"></div>
+                                    <div class="bg-pulse-grey w-50 ml-2" style="height: 18px"></div>
+                                </div>
+                            </div>
+                        </div>                    </div>
+                </div>            </div>
+            <div class="footer-container position-relative" data-region="footer-container">
+                
+                <div
+                    class="hidden border-top bg-white position-relative"
+                    aria-hidden="true"
+                    data-region="view-conversation"
+                    data-enter-to-send="0"
+                >
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-container">
+                        
+                            <div
+                                class="emoji-auto-complete-container w-100 hidden"
+                                data-region="emoji-auto-complete-container"
+                                aria-live="polite"
+                                aria-hidden="true"
+                            >
+                            </div>
+                        <div class="d-flex mt-sm-1">
+                            <textarea
+                                dir="auto"
+                                data-region="send-message-txt"
+                                class="form-control bg-light"
+                                rows="3"
+                                data-auto-rows
+                                data-min-rows="3"
+                                data-max-rows="5"
+                                aria-label="Escribe un mensaje..."
+                                placeholder="Escribe un mensaje..."
+                                style="resize: none"
+                                maxlength="4096"
+                            ></textarea>
+                        
+                            <div class="position-relative d-flex flex-column">
+                                    <div
+                                        data-region="emoji-picker-container"
+                                        class="emoji-picker-container hidden"
+                                        aria-hidden="true"
+                                    >
+                                        
+                                        <div
+                                            data-region="emoji-picker"
+                                            class="card shadow emoji-picker"
+                                        >
+                                            <div class="card-header px-1 pt-1 pb-0 d-flex justify-content-between flex-shrink-0">
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0 selected"
+                                                    data-action="show-category"
+                                                    data-category="Recent"
+                                                    title="Reciente"
+                                                >
+                                                    <i class="icon fa fa-clock-o fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Smileys & Emotion"
+                                                    title="Caritas sonrientes y emociones"
+                                                >
+                                                    <i class="icon fa fa-smile-o fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="People & Body"
+                                                    title="Personas y cuerpo"
+                                                >
+                                                    <i class="icon fa fa-male fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Animals & Nature"
+                                                    title="Animales y naturaleza"
+                                                >
+                                                    <i class="icon fa fa-leaf fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Food & Drink"
+                                                    title="Comida y bebida"
+                                                >
+                                                    <i class="icon fa fa-cutlery fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Travel & Places"
+                                                    title="Viaje y lugares"
+                                                >
+                                                    <i class="icon fa fa-plane fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Activities"
+                                                    title="Actividades"
+                                                >
+                                                    <i class="icon fa fa-futbol-o fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Objects"
+                                                    title="Objetos"
+                                                >
+                                                    <i class="icon fa fa-lightbulb-o fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Symbols"
+                                                    title="Símbolos"
+                                                >
+                                                    <i class="icon fa fa-heart fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                                <button
+                                                    class="btn btn-outline-secondary icon-no-margin category-button rounded-0"
+                                                    data-action="show-category"
+                                                    data-category="Flags"
+                                                    title="Banderas"
+                                                >
+                                                    <i class="icon fa fa-flag fa-fw" aria-hidden="true"  ></i>
+                                                </button>
+                                            </div>
+                                            <div class="card-body p-2 d-flex flex-column overflow-hidden">
+                                                <div class="input-group mb-1 flex-shrink-0">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text pr-0 bg-white text-muted">
+                                                            <i class="icon fa fa-search fa-fw" aria-hidden="true"  ></i>
+                                                        </span>
+                                                    </div>
+                                                    <input
+                                                        type="text"
+                                                        class="form-control border-left-0"
+                                                        placeholder="Buscar"
+                                                        aria-label="Buscar"
+                                                        data-region="search-input"
+                                                    >
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto emojis-container h-100" data-region="emojis-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                                <div class="flex-grow-1 overflow-auto search-results-container h-100 hidden" data-region="search-results-container">
+                                                    <div class="position-relative" data-region="row-container"></div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="card-footer d-flex flex-shrink-0"
+                                                data-region="footer"
+                                            >
+                                                <div class="emoji-preview" data-region="emoji-preview"></div>
+                                                <div data-region="emoji-short-name" class="emoji-short-name text-muted text-wrap ml-2"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="btn btn-link btn-icon icon-size-3 ml-1"
+                                        aria-label="Selector de emoticono"
+                                        data-action="toggle-emoji-picker"
+                                    >
+                                        <i class="icon fa fa-smile-o fa-fw" aria-hidden="true"  ></i>
+                                    </button>
+                                <button
+                                    class="btn btn-link btn-icon icon-size-3 ml-1 mt-auto"
+                                    aria-label="Enviar mensaje"
+                                    data-action="send-message"
+                                >
+                                    <span data-region="send-icon-container"><i class="icon fa fa-paper-plane fa-fw" aria-hidden="true"  ></i></span>
+                                    <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden p-sm-2" data-region="content-messages-footer-edit-mode-container">
+                        
+                        <div class="d-flex p-3 justify-content-end">
+                            <button
+                                class="btn btn-link btn-icon my-1 icon-size-4"
+                                data-action="delete-selected-messages"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Eliminar mensajes seleccionados"
+                            >
+                                <span data-region="icon-container"><i class="icon fa fa-trash fa-fw" aria-hidden="true"  ></i></span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                                <span class="sr-only">Eliminar mensajes seleccionados</span>
+                            </button>
+                        </div>                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-contact-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p data-region="title"></p>
+                            <p class="text-muted" data-region="text"></p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-add-contact">
+                                <span data-region="dialogue-button-text">Enviar solicitud de contacto</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-require-unblock-container">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">Ha bloqueado a este usuario.</p>
+                            <button type="button" class="btn btn-primary btn-block" data-action="request-unblock">
+                                <span data-region="dialogue-button-text">Desbloquear usuario</span>
+                                <span class="hidden" data-region="loading-icon-container"><span class="loading-icon icon-no-margin"><i class="icon fa fa-circle-o-notch fa-spin fa-sm fa-fw"  title="Cargando" role="img" aria-label="Cargando"></i></span>
+</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden bg-secondary p-sm-3" data-region="content-messages-footer-unable-to-message">
+                        
+                        <div class="p-3 bg-white">
+                            <p class="text-muted" data-region="text">No puedes enviar mensajes a este usuario</p>
+                        </div>
+                    </div>
+                    <div class="p-sm-2" data-region="placeholder-container">
+                        <div class="d-flex">
+                            <div class="bg-pulse-grey w-100" style="height: 80px"></div>
+                            <div class="mx-2 mb-2 align-self-end bg-pulse-grey" style="height: 20px; width: 20px"></div>
+                        </div>                    </div>
+                    <div
+                        class="hidden position-absolute z-index-1"
+                        data-region="confirm-dialogue-container"
+                        style="top: -1px; bottom: 0; right: 0; left: 0; background: rgba(0,0,0,0.3);"
+                    ></div>
+                </div>                    <div data-region="view-overview" class="text-center">
+                        <a href="https://www.upbvirtual.net/upbvirtual/message/index.php">
+                            Ver todo
+                        </a>
+                    </div>
+            </div>
+        </div>
+
+</div>
+<footer id="page-footer" class="d-none d-lg-block">
+    <div id="course-footer"></div>
+    
+    <div class="info container2 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="tool_usertours-resettourcontainer"></div>
+                <div class="col-md-4 my-md-0 my-2 helplink"></div>
+                <div class="col-md-4 my-md-0 my-2"><div class="tool_dataprivacy"><a href="https://www.upbvirtual.net/upbvirtual/admin/tool/dataprivacy/summary.php">Resumen de retención de datos</a></div><a class="mobilelink" href="https://download.moodle.org/mobile?version=2024042201&amp;lang=es&amp;iosappid=633359593&amp;androidappid=com.moodle.moodlemobile&amp;siteurl=https%3A%2F%2Fwww.upbvirtual.net%2Fupbvirtual">Descargar la app para dispositivos móviles</a></div>
+            </div>
+            <div class="row">
+                <div class="col-12 my-md-0 my-2">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<div id="back-to-top"><i class="fa fa-angle-up "></i></div>
+
+
+</div>
+</div>
+
+<script>
+//<![CDATA[
+var require = {
+    baseUrl : 'https://www.upbvirtual.net/upbvirtual/lib/requirejs.php/1742324982/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+    waitSeconds : 0,
+
+    paths: {
+        jquery: 'https://www.upbvirtual.net/upbvirtual/lib/javascript.php/1742324982/lib/jquery/jquery-3.7.1.min',
+        jqueryui: 'https://www.upbvirtual.net/upbvirtual/lib/javascript.php/1742324982/lib/jquery/ui-1.13.2/jquery-ui.min',
+        jqueryprivate: 'https://www.upbvirtual.net/upbvirtual/lib/javascript.php/1742324982/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+      // Stub module for 'process'. This is a workaround for a bug in MathJax (see MDL-60458).
+      '*': { process: 'core/first' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</script>
+<script src="https://www.upbvirtual.net/upbvirtual/lib/javascript.php/1742324982/lib/requirejs/require.min.js"></script>
+<script>
+//<![CDATA[
+M.util.js_pending("core/first");
+require(['core/first'], function() {
+require(['core/prefetch'])
+;
+M.util.js_pending('filter_mathjaxloader/loader'); require(['filter_mathjaxloader/loader'], function(amd) {amd.configure({"mathjaxconfig":"\nMathJax.Hub.Config({\n    config: [\"Accessible.js\", \"Safe.js\"],\n    errorSettings: { message: [\"!\"] },\n    skipStartupTypeset: true,\n    messageStyle: \"none\"\n});\n","lang":"es"}); M.util.js_complete('filter_mathjaxloader/loader');});;
+require(["media_videojs/loader"], function(loader) {
+    loader.setUp('es');
+});;
+M.util.js_pending('theme_adaptable/adaptable'); require(['theme_adaptable/adaptable'], function(amd) {amd.init(); M.util.js_complete('theme_adaptable/adaptable');});;
+M.util.js_pending('theme_adaptable/bsoptions'); require(['theme_adaptable/bsoptions'], function(amd) {amd.init({"stickynavbar":true}); M.util.js_complete('theme_adaptable/bsoptions');});;
+M.util.js_pending('core_courseformat/courseeditor'); require(['core_courseformat/courseeditor'], function(amd) {amd.setViewFormat("32243", {"editing":false,"supportscomponents":true,"statekey":"1746493575_1746661061","overriddenStrings":[]}); M.util.js_complete('core_courseformat/courseeditor');});;
+
+require(['core_courseformat/local/courseindex/placeholder'], function(component) {
+    component.init('course-index-placeholder');
+});
+;
+
+require(['core_courseformat/local/courseindex/drawer'], function(component) {
+    component.init('courseindex');
+});
+;
+
+require(['theme_boost/drawers']);
+;
+M.util.js_pending('block_navigation/navblock'); require(['block_navigation/navblock'], function(amd) {amd.init("4"); M.util.js_complete('block_navigation/navblock');});;
+M.util.js_pending('block_settings/settingsblock'); require(['block_settings/settingsblock'], function(amd) {amd.init("5", null); M.util.js_complete('block_settings/settingsblock');});;
+M.util.js_pending('theme_adaptable/collapseblock'); require(['theme_adaptable/collapseblock'], function(amd) {M.util.js_complete('theme_adaptable/collapseblock');});;
+
+require(['theme_boost/drawers']);
+;
+
+require(['jquery', 'message_popup/notification_popover_controller'], function($, Controller) {
+    var container = $('#nav-notification-popover-container');
+    var controller = new Controller(container);
+    controller.registerEventListeners();
+    controller.registerListNavigationEventListeners();
+});
+;
+
+require(
+[
+    'jquery',
+    'core_message/message_popover'
+],
+function(
+    $,
+    Popover
+) {
+    var toggle = $('#message-drawer-toggle-681bef023d369681bef0237c9c73');
+    Popover.init(toggle);
+});
+;
+
+require(['theme_boost/drawers']);
+;
+
+    require(['core/moremenu'], function(moremenu) {
+        moremenu(document.querySelector('#moremenu--'));
+    });
+;
+
+require(['core_course/manual_completion_toggle'], toggle => {
+    toggle.init()
+});
+;
+M.util.js_pending('core_courseformat/local/content/activity_header'); require(['core_courseformat/local/content/activity_header'], function(amd) {amd.init(); M.util.js_complete('core_courseformat/local/content/activity_header');});;
+
+        require(['jquery', 'core/custom_interaction_events'], function($, CustomEvents) {
+            CustomEvents.define('#jump-to-activity', [CustomEvents.events.accessibleChange]);
+            $('#jump-to-activity').on(CustomEvents.events.accessibleChange, function() {
+                if ($(this).val()) {
+                    $('#url_select_f681bef0237c9c74').submit();
+                }
+            });
+        });
+    ;
+
+require(['jquery', 'core_message/message_drawer'], function($, MessageDrawer) {
+    var root = $('#message-drawer-681bef023fe90681bef0237c9c75');
+    MessageDrawer.init(root, '681bef023fe90681bef0237c9c75', false);
+});
+;
+
+    M.util.js_pending('theme_boost/loader');
+    require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+        Drawer.init();
+        M.util.js_complete('theme_boost/loader');
+    });
+;
+M.util.js_pending('core/notification'); require(['core/notification'], function(amd) {amd.init(1536687, []); M.util.js_complete('core/notification');});;
+M.util.js_pending('core/log'); require(['core/log'], function(amd) {amd.setConfig({"level":"warn"}); M.util.js_complete('core/log');});;
+M.util.js_pending('core/page_global'); require(['core/page_global'], function(amd) {amd.init(); M.util.js_complete('core/page_global');});;
+M.util.js_pending('core/utility'); require(['core/utility'], function(amd) {M.util.js_complete('core/utility');});
+    M.util.js_complete("core/first");
+});
+//]]>
+</script>
+<script>
+//<![CDATA[
+M.yui.add_module({"core_comment":{"name":"core_comment","fullpath":"https:\/\/www.upbvirtual.net\/upbvirtual\/lib\/javascript.php\/1742324982\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay","escape"]}});
+
+//]]>
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?delayStartupUntil=configured"></script>
+<script>
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"\u00daltima modificaci\u00f3n","name":"Nombre","error":"Error","info":"Informaci\u00f3n","yes":"S\u00ed","no":"No","viewallcourses":"Ver todos los cursos","cancel":"Cancelar","addcomment":"Agregar un comentario...","comments":"Comentarios","commentscount":"Comentarios ({$a})","commentsrequirelogin":"Necesita identificarse para ver los comentarios.","deletecommentbyon":"Borrar el comentario publicado por  {$a->user} el {$a->time}","confirm":"Confirmar","areyousure":"\u00bfEst\u00e1 seguro?","closebuttontitle":"Cerrar","unknownerror":"Error desconocido","file":"Archivo","url":"URL","collapseall":"Colapsar todo","expandall":"Expandir todo"},"repository":{"type":"Tipo","size":"Tama\u00f1o","invalidjson":"Cadena JSON no v\u00e1lida","nofilesattached":"No se han adjuntado archivos","filepicker":"Selector de archivos","logout":"Salir","nofilesavailable":"No hay archivos disponibles","norepositoriesavailable":"Lo sentimos, ninguno de sus repositorios actuales puede devolver archivos en el formato solicitado.","fileexistsdialogheader":"El archivo existe","fileexistsdialog_editor":"Un archivo con ese nombre ha sido anexado al texto que Usted est\u00e1 editando","fileexistsdialog_filemanager":"Ya ha sido anexado un archivo con ese nombre","renameto":"Cambiar el nombre a \"{$a}\"","referencesexist":"Existen {$a} enlaces a este archivo","select":"Seleccionar"},"admin":{"confirmdeletecomments":"\u00bfSeguro que quiere eliminar el\/los comentario(s) seleccionados?","confirmation":"Confirmaci\u00f3n"},"debug":{"debuginfo":"Informaci\u00f3n de depuraci\u00f3n","line":"L\u00ednea","stacktrace":"Trazado de la pila (stack)"},"langconfig":{"labelsep":":"}};
+//]]>
+</script>
+<script>
+//<![CDATA[
+(function() {M.util.help_popups.setup(Y);
+ M.util.js_pending('random681bef0237c9c78'); Y.on('domready', function() {  M.util.js_pending('random681bef0237c9c78'); Y.use('core_comment', function(Y) { M.core_comment.init(Y, {"client_id":"681bef02458cf","commentarea":"submission_comments","itemid":"2397289","page":0,"courseid":"32243","contextid":1536687,"component":"assignsubmission_comments","notoggle":false,"autostart":false});  M.util.js_complete('random681bef0237c9c78'); });  M.util.js_complete('random681bef0237c9c78'); });
+ M.util.js_pending('random681bef0237c9c79'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random681bef0237c9c79'); });
+})();
+//]]>
+</script>
+
+
+
+
+
+
+</body></html>
